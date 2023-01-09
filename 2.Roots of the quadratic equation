@@ -1,0 +1,16 @@
+#include <iostream>
+#include<cmath>
+
+using namespace std;
+
+int main()
+{
+    float a,b,c,r1,r2; //a,b and c are coefficients of x^2,x and constant of a quadratic equation
+                       // r1,r2 are roots 
+    cout<<"Enter the values of coefficients of x^2,x, and constant in the same order:";
+    cin>>a>>b>>c;
+    r1=(-b+sqrt(b*b-4*a*c))/(2*a);
+    r2=(-b-sqrt(b*b-4*a*c))/(2*a);
+    cout<<"roots of the quadratic equation are:"<<r1<<" and "<<r2;
+    return 0;
+}

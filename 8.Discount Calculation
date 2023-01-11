@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float bill,discount;
+    cout<<"enter the bill amount:";
+    cin>>bill;
+    if (bill>=500)
+        discount=bill*0.2;
+    else if (bill>=100)
+        discount=bill*0.1;
+    else 
+        discount=0.0;
+    cout<<"Bill amount is "<<bill<<endl;
+    cout<<"Discount is "<<discount<<endl;
+    cout<<"Discounted amount is "<<bill-discount<<endl;
+    return 0;
+}

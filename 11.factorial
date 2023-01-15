@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+    int n,f;
+    cout<<"Enter a number for calc its factorial:";
+    cin>>n;
+    if (n==0||n==1)
+    {
+        cout<<n<<"!"<<" is equal to "<<"1";
+    }
+    else
+    {
+        f=1;
+        int m=n;
+        while (n>0)
+        {
+            f*=n;
+            n--;
+        }
+        cout<<m<<"!"<<" is equal to "<<f;
+    }
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int choice;
+    cout<<"Menu \n";
+    cout<<"1.Add \n"<<"2.Subtraction \n"<<"3.Multiplication \n"<<"4.Division \n";
+    cout<<"Enter your choice:";
+    cin>>choice;
+    float x,y,z;
+    cout<<"Enter two numbers:";
+    cin>>x>>y;
+    switch(choice)
+    {
+        case 1:z=x+y;
+            break;
+        case 2:z=x-y;
+            break;
+        case 3:z=x*y;
+            break;
+        case 4:z=x/y;
+            break;
+    }
+    cout<<"Result is "<<z;
+    return 0;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,r,rev=0;
+    cout<<"enter the number:";
+    cin>>n;
+    int m=n;
+    for (int i=1;i<=100;i++)
+    {
+        if (n>=1)
+        {
+            r=n%10;
+            n=n/10;
+            rev=rev*10+r;
+        }
+    }
+    if (m==rev)
+    {
+        cout<<"palindrome";
+    }
+    else
+    {
+        cout<<"not a palindrome";
+    }
+
+    return 0;
+}

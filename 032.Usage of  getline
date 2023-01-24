@@ -1,0 +1,14 @@
+#include <iostream>
+#include<cstring>
+
+using namespace std;
+
+int main()
+{
+    char name[50];
+    cout<<"Enter your name:";
+    cin.getline(name,50);  //Takes the entire string including spaces as input
+    cout<<"Hello, Mr/Mrs: "<<name;
+    return 0;
+}
+

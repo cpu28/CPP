@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int m,n,a,b;
+    cout<<"Enter no.of rows, columns in matrix A:";
+    cin>>m>>n;
+    cout<<"Enter no.of rows, columns in matrix B:";
+    cin>>a>>b;
+    if (m==a && n==b)
+    {
+        cout<<"matrix addition is possible"<<endl;
+    }
+    else 
+    {
+        cout<<"matrix addition is not possible"<<endl;
+        return 0;
+    }
+    cout<<"Enter the matrix A values:";
+    int A[m][n],B[a][b],C[m][n];
+    for (int i=0;i<m;i++)
+    {
+        for (int j=0;j<n;j++)
+        {
+            cin>>A[i][j];
+        }
+    }
+    cout<<"Enter the matrix B values:";
+    for (int i=0;i<a;i++)
+    {
+        for (int j=0;j<b;j++)
+        {
+            cin>>B[i][j];
+        }
+    }
+    for (int i=0;i<a;i++)
+    {
+        for (int j=0;j<b;j++)
+        {
+            C[i][j]=A[i][j]+B[i][j];
+            cout<<C[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    
+    return 0;
+}
+

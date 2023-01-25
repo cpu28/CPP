@@ -1,0 +1,47 @@
+#include <iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string name,lastname,firstname;
+    cout<<"Enter your name:"<<endl;
+    getline(cin,name);
+    firstname=name;
+    cout<<"Hello! "<<name<<endl;
+    cout<<"length of the name is "<<name.length()<<endl;
+    cout<<"capacity for name is "<<name.capacity()<<endl;
+    name.resize(30);
+    cout<<"capacity for name is resized to "<<name.capacity()<<endl;
+    cout<<"Max size for name based on compiler is "<<name.max_size()<<endl;
+    name.clear();
+    cout<<"name after clearning is "<<name<<endl;
+    if (name.empty())
+        cout<<"string is empty"<<endl;
+    else
+        cout<<"string is not empty"<<endl;
+    cout<<"Enter your last name:"<<endl;
+    getline(cin,lastname);
+    name=firstname.append(lastname);
+    cout<<"name with surname is "<<name<<endl;
+    name.insert(3,"*********");
+    cout<<"name after inserting ********** at index 3 is "<<name<<endl;
+    name.replace(5,10,"%%%%");
+    cout<<"name after replacing from index 5 and up to 10 places with %%%% is "<<name<<endl;
+    name.erase();
+    cout<<"name after erasing is "<<name<<endl;
+    name=firstname;
+    cout<<"name is "<<name<<endl;
+    name.push_back('z');
+    cout<<"name after push back z is "<<name<<endl;
+    name.pop_back();
+    cout<<"name after pop back z is "<<name<<endl;
+    firstname.swap(lastname);
+    cout<<"first name after swapping is "<<firstname<<endl;
+    cout<<"Index of and in name is "<<name.find("and")<<endl;
+    cout<<"index of p by reverse find in name is "<<name.rfind('p')<<endl;
+    
+    
+    return 0;
+}

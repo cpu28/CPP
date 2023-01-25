@@ -1,0 +1,17 @@
+#include <iostream>
+#include<cstring>
+
+using namespace std;
+
+int main()
+{
+    char str1[]="Good";
+    char str2[]="Morning";
+    char str3[]="everyone";
+    strcat(str1,str2);
+    cout<<"concatenated string is "<<str1<<endl;
+    strcpy(str1,str3);
+    cout<<"string copied is "<<str1<<endl;
+    return 0;
+}
+

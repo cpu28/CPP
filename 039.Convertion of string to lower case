@@ -1,0 +1,22 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string s;
+    cout<<"enter a string in UPPER CASE:";
+    getline(cin,s);
+    for (int i=0;s[i]!='\0';i++)
+    {
+        if (s[i]>=65 && s[i]<=90)
+        {
+            s[i]+=32;
+        }
+        
+    }
+    
+    cout<<"string after converting to lower case is "<<s;
+
+    return 0;
+}

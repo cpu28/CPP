@@ -1,0 +1,19 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string str;
+    int len=0;
+    cout<<"Enter the string:"<<endl;
+    getline(cin,str);
+    string::iterator it;
+    for (it=str.begin();it!=str.end();it++)
+    {
+        len++;
+    }
+    cout<<"length of string is "<<len<<endl;
+
+    return 0;
+}

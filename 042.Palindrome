@@ -1,0 +1,36 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string str,rev;
+    int n;
+    rev="";
+    cout<<"Enter s string:";
+    getline(cin,str);
+    n=str.length();
+    for (int i=0;i<n;i++)
+    {
+        if (str[i]>=65 && str[i]<=90)
+        {
+            str[i]+=32;
+        }
+    }
+    for (int i=0,j=n-1;i<n;i++,j--)
+    {
+        rev[j]=str[i];
+        rev+=rev[j];
+    }
+    cout<<"reversed string is "<<rev<<endl;
+    if (str.compare(rev)==0)
+    {
+        cout<<str<<" is a palindrome";
+    }
+    else
+    {
+        cout<<str<<" is not a palindrome";
+    }
+    return 0;
+}
+

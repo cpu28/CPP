@@ -1,0 +1,33 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string mail,username,valid;
+    username="";
+    valid="";
+    cout<<"Enter the mail id:";
+    getline(cin,mail);
+    int i=(int)mail.find('@');
+    username=mail.substr(0,i);
+    cout<<"user name is "<<username<<endl;
+    for (int i=0;i<username.length();i++)
+    {
+        if ((username[i]>=65 &&username[i]<=90)||(username[i]>=97 &&username[i]<=122) ||(username[i]>=48 &&username[i]<=57)||username[i]=='.'||username[i]=='_')
+        {
+            valid[i]=username[i];
+            valid+=valid[i];
+        }
+    }
+    
+    if (username.compare(valid)==0)
+    {
+        cout<<"username is valid";
+    }
+    else
+    {
+        cout<<"username is invalid";
+    }
+    return 0;
+}

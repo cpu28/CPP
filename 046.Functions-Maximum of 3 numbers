@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+float max(float x, float y,float z)
+{
+    float max=x;
+    if (y>max)
+    {
+        max=y;
+    }
+    if (z>max)
+    {
+        max=z;
+    }
+    
+    return max;
+}
+
+int main()
+{
+    float a, b,c, maximum;
+    cout<<"Enter three numbers:";
+    cin>>a>>b>>c;
+    maximum=max(a,b,c);
+    cout<<"Maximum of "<<a<<","<<b<<" and "<<c<<" is "<<maximum;
+    return 0;
+}

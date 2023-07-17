@@ -61,7 +61,7 @@ public:
         ListNode* slow = head;
         ListNode* fast = head->next;
         
-        // Traverse the list until the pointers meet or the fast pointer reaches the end
+        // Traverse the list until the pointers meet or the slow/fast pointer reaches the end
         while (slow != NULL)
         {
             // If the fast pointer reaches the end, there is no cycle

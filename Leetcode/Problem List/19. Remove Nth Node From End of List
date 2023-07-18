@@ -1,0 +1,99 @@
+Question:
+
+Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+Example 2:
+
+Input: head = [1], n = 1
+Output: []
+Example 3:
+
+Input: head = [1,2], n = 1
+Output: [1]
+ 
+
+Constraints:
+
+The number of nodes in the list is sz.
+1 <= sz <= 30
+0 <= Node.val <= 100
+1 <= n <= sz
+ 
+
+Follow up: Could you do this in one pass?
+
+
+
+
+
+
+
+
+
+
+
+
+Solution:
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        // Check if the list is empty or n value invalid;.
+        if (head == nullptr || n<0 ) {
+            return head;
+        }
+
+        ListNode* first = head;
+        ListNode* second = head;
+
+        // Move the second pointer n positions ahead.
+        while (n > 0) 
+        {
+            if (second->next != nullptr) 
+            {
+                second = second->next;
+                n--;
+            } 
+            else  // If n is equal to the length of the list, remove the first node.
+            {
+                ListNode* temp = head;
+                head = head->next;
+                temp->next = nullptr;
+                delete temp;
+                return head;
+            }
+        }
+
+        // Move both pointers until the second pointer reaches the end.
+        while (second->next != nullptr) 
+        {
+            second = second->next;
+            first = first->next;
+        }
+
+        // Remove the Nth node from the end.
+        ListNode* temp = first->next;
+        first->next = first->next->next;
+        temp->next = nullptr;
+        delete temp;
+
+        return head;
+    }
+};

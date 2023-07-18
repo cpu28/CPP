@@ -1,0 +1,88 @@
+Question:
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) 
+    {
+        int n = nums.size();
+        if (n == 0) 
+        {
+            return 0;
+        }
+
+        int i = 0, j = n - 1;
+        while (i <= j) 
+        {
+            // Find the last occurrence of 'val' from the right end of the array 
+            while (i <= j && nums[j] == val)
+            {  
+                j--;
+            }
+            
+            // If all remaining elements are 'val', break the loop
+            if (i > j) 
+            {
+                break;
+            }
+            // If the current element is 'val', replace it with the last non-'val' element
+            if (nums[i] == val) 
+            {
+                nums[i] = nums[j];
+                j--;
+            } 
+            else // Move to the next element if the current element is not 'val'
+            {
+                i++;
+            }
+        }
+        return i;
+    }
+};
+
+
+
+
+
+
+
+
+Solution:
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) 
+    {
+        int n = nums.size();
+        if (n == 0) 
+        {
+            return 0;
+        }
+
+        int i = 0, j = n - 1;
+        while (i <= j) 
+        {
+            // Find the last occurrence of 'val' from the right end of the array 
+            while (i <= j && nums[j] == val)
+            {  
+                j--;
+            }
+            
+            // If all remaining elements are 'val', break the loop
+            if (i > j) 
+            {
+                break;
+            }
+            // If the current element is 'val', replace it with the last non-'val' element
+            if (nums[i] == val) 
+            {
+                nums[i] = nums[j];
+                j--;
+            } 
+            else // Move to the next element if the current element is not 'val'
+            {
+                i++;
+            }
+        }
+        return i;
+    }
+};

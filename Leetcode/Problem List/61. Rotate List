@@ -1,0 +1,93 @@
+Question:
+
+Given the head of a linked list, rotate the list to the right by k places.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
+Example 2:
+
+
+Input: head = [0,1,2], k = 4
+Output: [2,0,1]
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [0, 500].
+-100 <= Node.val <= 100
+0 <= k <= 2 * 109
+Accepted
+758.5K
+Submissions
+2.1M
+Acceptance Rate
+36.4%
+
+
+
+
+Solution:
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) 
+    {
+        ListNode* NodeK=head;     //Kth Node
+        ListNode* tail=head;
+        if(head==nullptr ||k<=0) //for nullptr or no element in list;
+        {
+            return head;
+        }
+        if(tail->next==nullptr) //for just single element in list
+        {
+            return head;
+        }
+        while(k>0)
+        {
+            if(tail->next!=nullptr) 
+            {
+                tail=tail->next;
+                k--;
+            }
+           
+            else if (tail->next==nullptr && k==1) //for k==n
+            {
+                return head;
+            }
+            else //for tail->next==nullptr, which happens when k>=n.
+            {
+                tail=head;
+                k--;
+            }
+        }
+
+        while(tail->next!=nullptr)
+        {
+            tail=tail->next;
+            NodeK=NodeK->next;
+        }
+
+        ListNode *temp=NodeK->next; //head of second part
+        NodeK->next=nullptr;
+        tail->next=head;
+        head=temp;
+
+        return head;
+
+    }
+};

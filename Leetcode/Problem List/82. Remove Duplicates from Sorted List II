@@ -1,0 +1,92 @@
+question:
+
+Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,3,3,4,4,5]
+Output: [1,2,5]
+Example 2:
+
+
+Input: head = [1,1,1,2,3]
+Output: [2,3]
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [0, 300].
+-100 <= Node.val <= 100
+The list is guaranteed to be sorted in ascending order.
+
+
+
+
+
+Solution:
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) 
+    {
+        // Check if the list is empty or contains only one node
+        if (head == nullptr || head->next == nullptr) 
+        {
+            return head;
+        }
+
+        ListNode* dummyHead = new ListNode(0);
+        dummyHead->next = head;
+        ListNode* dummy = dummyHead;
+        ListNode* first = head;
+        ListNode* second = head->next;
+
+        while (second != nullptr) 
+        {
+            // If the next node has a different value, move all pointers to the next nodes
+            if (second->val != first->val) 
+            {
+                first = first->next;
+                second = second->next;
+                dummy = dummy->next;
+            } 
+            
+            else 
+            {
+                // If the next node has the same value as the current node, keep 
+                // advancing the 'second' pointer until we find the next distinct node
+                while (second != nullptr && second->val == first->val) 
+                {
+                    ListNode* temp = second;
+                    second = second->next;
+                    delete temp; //Delete the duplicate node
+                }
+                dummy->next = second;
+                delete first; // Delete the first pointer since it's no longer needed
+                first = second;
+                // Move the 'second' pointer to the next node after the duplicates
+                if (second != nullptr) 
+                {
+                    second = second->next;
+                }
+            }
+        }
+
+        ListNode* result = dummyHead->next;
+        delete dummyHead;
+        return result;
+    }
+};

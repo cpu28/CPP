@@ -1,0 +1,40 @@
+Question:
+
+
+
+
+
+
+
+Solution:
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) 
+    {
+        int n=prices.size();
+        int profit=0;
+
+        int mini=INT_MAX;
+        for(int i=0;i<n;i++)
+        {
+            if(prices[i]<mini) // Check if the current price is smaller than the previously seen minimum price.
+            {
+                mini=prices[i]; //update min
+                int maxi=prices[i]; // Initialize a variable to keep track of the maximum price seen after the minimum price.
+                for (int j=i+1;j<n;j++)
+                {
+                    if(prices[j]>maxi)
+                    {
+                        maxi=prices[j];
+                        profit=max(profit, maxi-mini);// Calculate the potential profit from buying at the minimum price and selling at the maximum price, and update the overall maximum profit if necessary
+                    }
+                } 
+            }
+
+            
+        }
+
+        return profit;
+    }
+};

@@ -21,12 +21,7 @@ Constraints:
 
 1 <= haystack.length, needle.length <= 104
 haystack and needle consist of only lowercase English characters.
-Accepted
-1.9M
-Submissions
-4.6M
-Acceptance Rate
-39.9%
+
 
 
 

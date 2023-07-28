@@ -21,12 +21,7 @@ Constraints:
 The number of nodes in the list is in the range [0, 500].
 -100 <= Node.val <= 100
 0 <= k <= 2 * 109
-Accepted
-758.5K
-Submissions
-2.1M
-Acceptance Rate
-36.4%
+
 
 
 
